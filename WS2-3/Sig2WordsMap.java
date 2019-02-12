@@ -1,9 +1,8 @@
 import java.io.FileNotFoundException;
 
-public class Sig2WordList {
-
+public class Sig2WordsMap {
 	public static void main(String[]args) throws FileNotFoundException {
-		ListDictionary ld = new ListDictionary();
+		MapDictionary ld = new MapDictionary();
 		for(int i=0; i<args.length; i++) {
 			System.out.println(args[i] + ": " + ld.signatureToWords(args[i]));
 		}

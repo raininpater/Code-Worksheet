@@ -1,14 +1,4 @@
-/**
- *   The Date class here is used to pick up on the simpler Date class
- *   from week 2 in order to show how we can restrict the creation of
- *   dates to admissible dates. To this end we write a method
- *   admissible which checks whether inputs of the constructor form a
- *   valid date. If not on constuction an IllegalArgumentException is
- *   thrown. 
- *   
- *   @version 2017-10-19
- *   @author Manfred Kerber
- */
+
 public class Date {
 
     /**

@@ -13,16 +13,8 @@ public class WordSig implements Comparable<WordSig>{
 		return words;
 	}
 
-	public void setWords(String words) {
-		this.words = words;
-	}
-
 	public String getSignature() {
 		return signature;
-	}
-
-	public void setSignature(String signature) {
-		this.signature = signature;
 	}
 	
 	public int compareTo(WordSig ws) {

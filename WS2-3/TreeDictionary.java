@@ -7,8 +7,19 @@ public class TreeDictionary implements Dictionary {
 
 	Tree all = new Tree();
 
-	public TreeDictionary() throws FileNotFoundException {
-		Scanner sc = new Scanner(new File("words"));
+	/**
+	 * The method stores the dictionary in your own tree implementation. It should
+	 * support ecient search as well as ecient insertion of new words. In
+	 * addition, TreeDictionary should support nding words when only some initial
+	 * part of the signature (a pre x) is known. This is so that the user can see
+	 * the part of the word they intend to type as they are typing.
+	 * 
+	 * Time cost = 6513ms
+	 * 
+	 * @throws FileNotFoundException Throws an exception if the file is not found.
+	 */
+	public TreeDictionary(String path) throws FileNotFoundException {
+		Scanner sc = new Scanner(new File(path));
 		while (sc.hasNextLine()) {
 			String word = sc.next();
 			Tree cur = all;
@@ -33,22 +44,22 @@ public class TreeDictionary implements Dictionary {
 									.add(word.toLowerCase().substring(0, i + 1));
 						}
 						cur = cur.getChildren()[Character.getNumericValue(sig[i]) - 2];
-
 					}
 				}
 			}
 		}
 	}
 
+	/**
+	 * The method that returns, in a Set<String>, the matching words (and prefixes
+	 * of words) for the given signature. The character length of each of the
+	 * returned words or prefixes must be the same as the input signature.
+	 * 
+	 * @param signature The signature inputed to the method
+	 */
 	@Override
 	public Set<String> signatureToWords(String signature) {
 
 		return all.search(all, signature.toCharArray());
 	}
-
-//	public static void main(String[] args) throws FileNotFoundException {
-//		TreeDictionary a = new TreeDictionary();
-//		System.out.println(a.signatureToWords("4663"));
-//	}
-
 }

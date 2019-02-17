@@ -4,8 +4,27 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
+/**
+ * This class three methods, wordToSignature takes takes a word and returns a
+ * numeric signature. isValidWord tests if a word is a alphabetic word or not.
+ * signatureToWords takes the given numeric signature and returns a set of
+ * possible matching words from the dictionary.
+ * 
+ * Time cost = 2596ms
+ * 
+ * @author Jing Li
+ *
+ */
 public class PredictivePrototype {
 
+	/**
+	 * The reason why we should use the StringBuffer class rather than String class
+	 * is that every time when we change a variable of String type, it will create
+	 * The method takes a word and returns a numeric signature.
+	 * 
+	 * @param word The word to be transformed to a signature.
+	 * @return A String type of signature is returned.
+	 */
 	public static String wordToSignature(String word) {
 		char[] words = word.toLowerCase().toCharArray();
 		StringBuffer sB = new StringBuffer();
@@ -33,6 +52,13 @@ public class PredictivePrototype {
 		return sB.toString();
 	}
 
+	/**
+	 * The method that test whether a word is an alphabetic word
+	 * 
+	 * @param word The word to be tested.
+	 * @return True: the word is an alphabetic word. False: The word is a
+	 *         non-alphabetic word.
+	 */
 	public static boolean isValidWord(String word) {
 		char[] words = word.toLowerCase().toCharArray();
 		for (int i = 0; i < words.length; i++) {
@@ -43,6 +69,14 @@ public class PredictivePrototype {
 		return true;
 	}
 
+	/**
+	 * The method takes the given numeric signature and returns a set of possible
+	 * matching words from the dictionary.
+	 * 
+	 * @param signature The signature to be transformed to words
+	 * @return A set of words was returned.
+	 * @throws FileNotFoundException If the file is not found, throw an exception.
+	 */
 	public static Set<String> signatureToWords(String signature) throws FileNotFoundException {
 		Scanner sc = new Scanner(new File("words"));
 		Set<String> all = new HashSet<String>();
@@ -51,15 +85,8 @@ public class PredictivePrototype {
 			if (isValidWord(words) && signature.equals(wordToSignature(words))) {
 				all.add(words.toLowerCase());
 			}
-
 		}
 		sc.close();
 		return all;
 	}
-
-	public static void main(String[] args) throws FileNotFoundException {
-		System.out.println(wordToSignature("Hello, World"));
-		System.out.println(signatureToWords("4663"));
-	}
-
 }

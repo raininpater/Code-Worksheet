@@ -14,8 +14,8 @@
 	 static int power(int m, int n) {
 		 if( n == 0 ) {
 			 return 1;
-		 }else if( n == 1) {
-			 return m;
+//		 }else if( n == 1) {
+//			 return m;
 		 }else {
 			 return m * power(m, n-1);
 		 }
@@ -29,8 +29,9 @@
 	 static int fastPower(int m, int n) {
 		 if( n == 0 ) {
 			 return 1;
-		 }else if( n == 1) {
-			 return m;
+			 //redundancy
+//		 }else if( n == 1) {
+//			 return m;
 		 }else if(n%2 ==0){
 			 return fastPower(m*m, n/2);
 		 }else {
@@ -51,8 +52,7 @@
 			 return a;
 		 }else {
 			 //To create a new List temp to store the changed List.
-			 List<Integer> temp = new List<Integer>(-a.getHead(),negateAll(a.getTail()));
-			 return temp;
+			 return new List<Integer> temp = new List<Integer>(-a.getHead(),negateAll(a.getTail()));
 		 }
 	}
 	 
@@ -110,7 +110,7 @@
 		 }
 		 if(a.getHead()>0) {
 			List<Integer> temp = new List<Integer>();
-			return temp = new List<Integer>(a.getHead(),positives(a.getTail()));
+			return new List<Integer>(a.getHead(),positives(a.getTail()));
 		 }else {
 			return positives(a.getTail());
 		 }
